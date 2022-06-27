@@ -1,0 +1,261 @@
+﻿@model PetBucket.com.bd_ASP.NET_MVC.Models.Customer
+
+@{
+    ViewBag.Title = "EditCustomer";
+}
+
+
+<style>
+    .centerdiv {
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+    }
+</style>
+
+<div class="sidebar-container">
+    <div class="sidebar-logo">
+        Admin
+    </div>
+    <ul class="sidebar-navigation">
+        <li>
+            <a href="@Url.Action("AdminDashboard", "Admin")">
+                <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("ProfitDetails", "Admin")">
+                <i class="fa fa-tachometer" aria-hidden="true"></i> Profit Details
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("RequestDetails", "Admin")">
+                <i class="fa fa-tachometer" aria-hidden="true"></i> Request Details
+            </a>
+        </li>
+        <li class="header">All LIST</li>
+
+        <li>
+            <a href="@Url.Action("CustomerList", "Admin")">
+                <i class="fa fa-home" aria-hidden="true"></i> Customer List
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("PetsitterList", "Admin")">
+                <i class="fa fa-home" aria-hidden="true"></i> Pet Sitter List
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("AgenceyList", "Admin")">
+                <i class="fa fa-home" aria-hidden="true"></i> Agency List
+            </a>
+        </li>
+
+        <li class="header">ADD USER</li>
+        <li>
+            <a href="@Url.Action("AddCustomer", "Admin")">
+                <i class="fa fa-users" aria-hidden="true"></i> Add Customer
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("AddPetsitter", "Admin")">
+                <i class="fa fa-cog" aria-hidden="true"></i> Add Pet Sitter
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("AddAgency", "Admin")">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Add Agencey
+            </a>
+        </li>
+        <li class="header">OTHERS</li>
+        <li>
+            <a href="@Url.Action("AdminReport", "Admin")">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Report
+            </a>
+        </li>
+        <li>
+            <a href="/Auth/Logout">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> LOGOUT
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="content-container">
+    <div class="container-fluid">
+        <div class="grey-bg container-fluid">
+            <section id="stats-subtitle">
+                <div class="row">
+                    <div class="col-12 mt-3 mb-1">
+
+                    </div>
+                </div>
+                <div class="centerdiv">
+                    <div class="reg-container">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            <h4 class="danger">Edit Customer</h4>
+                            <div class="content">
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.id)
+
+                                <div class="form-group">
+                                    <h6 class="primary">Full Name</h6>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h6 class="primary">Email</h6>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h6 class="primary">Password</h6>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                @*<div class="form-group">
+            <h6 class="primary">Confirm Password</h6>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+                                <div class="form-group">
+                                    <h6 class="primary">Address</h6>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h6 class="primary">NID Number</h6>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.nid, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.nid, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h6 class="primary">Phone Number</h6>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h6 class="primary">Current Balance</h6>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.balance, new { htmlAttributes = new { @disabled = "true", @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.balance, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Save" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                            <div>
+                                @Html.ActionLink("Back to List", "CustomerList")
+                            </div>
+                         </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+@*@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Customer</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.address, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.nid, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nid, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.nid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.phone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.balance, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.balance, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.balance, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@

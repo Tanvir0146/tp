@@ -1,0 +1,47 @@
+﻿@model PetBucket.com.bd_ASP.NET_MVC.Models.Login
+@{
+    ViewBag.Title = "Login";
+}
+
+<!------ Include the above in your HEAD tag ---------->
+<div class=" login-body">
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <img src="https://cdn.discordapp.com/attachments/800404133731369023/904061372730585128/petbucket.png" id="icon" alt="User Icon" />
+            </div>
+
+            <!-- Login Form -->
+            @using (Html.BeginForm("Login", "Auth"))
+            {
+                @Html.AntiForgeryToken()
+
+
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @placeholder = "Enter your email" } })<br />
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "fadeIn second text-danger", @id = "login" })
+
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = "Enter your password" } })<br />
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "fadeIn third text-danger", @id = "password" })
+                <br />
+
+                <input type="submit" class="fadeIn fourth" value="Log In"><br />
+
+                <div class="text-danger" style="align-content:center;">
+                    @ViewBag.LoginErrorMessage
+                </div>
+            }
+
+
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                <a class="underlineHover" href="#">Forgot Password?</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

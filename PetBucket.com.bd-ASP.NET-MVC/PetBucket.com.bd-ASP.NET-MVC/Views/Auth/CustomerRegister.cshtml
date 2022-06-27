@@ -1,0 +1,75 @@
+﻿@model PetBucket.com.bd_ASP.NET_MVC.Models.Customer
+
+@{
+    ViewBag.Title = "CustomerRegister";
+}
+
+<div class="reg-body">
+    <div class="reg-container">
+        <div class="title">Sign up</div>
+        <p>To get pet service</p>
+        <div class="content">
+            @using (Html.BeginForm("CustomerRegister", "Auth"))
+            {
+                @Html.AntiForgeryToken()
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Full Name</span>
+
+                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @placeholder = "Enter your name" } })
+                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                    </div>
+                    @*<div class="input-box">
+                            <span class="details">Username</span>
+                            <input name="name" type="text" placeholder="Enter your username" required>
+                        </div>*@
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @placeholder = "Enter your email" } })
+                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Phone Number</span>
+                        @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @placeholder = "Enter your number" } })
+                        @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">NID Number</span>
+                        @Html.EditorFor(model => model.nid, new { htmlAttributes = new { @placeholder = "Enter your NID number" } })
+                        @Html.ValidationMessageFor(model => model.nid, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Address</span>
+                        @Html.EditorFor(model => model.address, new { htmlAttributes = new { @placeholder = "Enter your address" } })
+                        @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Password</span>
+                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @placeholder = "Enter your password" } })
+                        @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Confirm Password</span>
+                        @Html.EditorFor(model => model.confirmpassword, new { htmlAttributes = new { @placeholder = "Confirm your password" } })
+                        @Html.ValidationMessageFor(model => model.confirmpassword, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Register">
+                </div>
+            }
+        </div>
+
+        <!-- Success Alert -->
+        <div class="text-success" style="align-content:center;">
+            @ViewBag.RegisterSuccessMessage
+        </div>
+        <div class="text-danger" style="align-content:center;">
+            @ViewBag.RegisterErrorMessage
+        </div>
+    </div>
+</div>
+

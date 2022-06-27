@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="petbucketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="email" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="password" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="address" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="nid" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="profit" Type="money" />
+    <Property Name="phone" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Agencies">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="email" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="password" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="address" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="nid" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="balance" Type="money" Nullable="false" />
+    <Property Name="phone" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="email" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="password" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="address" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="nid" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="balance" Type="money" Nullable="false" />
+    <Property Name="phone" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Logins">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="100" />
+    <Property Name="Email" Type="nchar" MaxLength="100" />
+    <Property Name="Password" Type="nchar" MaxLength="100" />
+    <Property Name="type" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'petbucket.dbo.Petsitters' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Petsitters">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="email" />
+      <PropertyRef Name="password" />
+      <PropertyRef Name="address" />
+      <PropertyRef Name="nid" />
+      <PropertyRef Name="balance" />
+    </Key>
+    <Property Name="id" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="email" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="password" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="address" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="nid" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="balance" Type="money" Nullable="false" />
+    <Property Name="phone" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="RequestTables">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="email" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="nid" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="address" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+    <Property Name="petdetails" Type="nchar" MaxLength="1000" Nullable="false" />
+    <Property Name="duration" Type="int" Nullable="false" />
+    <Property Name="phone" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="requestdetails" Type="nchar" MaxLength="1000" Nullable="false" />
+    <Property Name="amount" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="petbucketModelStoreContainer">
+    <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Agencies" EntityType="Self.Agencies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Logins" EntityType="Self.Logins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RequestTables" EntityType="Self.RequestTables" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Petsitters" EntityType="Self.Petsitters" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Petsitters].[id] AS [id], 
+[Petsitters].[name] AS [name], 
+[Petsitters].[email] AS [email], 
+[Petsitters].[password] AS [password], 
+[Petsitters].[address] AS [address], 
+[Petsitters].[nid] AS [nid], 
+[Petsitters].[balance] AS [balance], 
+[Petsitters].[phone] AS [phone]
+FROM [dbo].[Petsitters] AS [Petsitters]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

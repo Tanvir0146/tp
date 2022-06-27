@@ -1,0 +1,462 @@
+﻿@model PetBucket.com.bd_ASP.NET_MVC.Models.Customer
+
+@{
+    ViewBag.Title = "DeleteCustomer";
+}
+
+
+
+<div class="sidebar-container">
+    <div class="sidebar-logo">
+        Admin
+    </div>
+    <ul class="sidebar-navigation">
+        <li>
+            <a href="@Url.Action("AdminDashboard", "Admin")">
+                <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("ProfitDetails", "Admin")">
+                <i class="fa fa-tachometer" aria-hidden="true"></i> Profit Details
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("AdminProfile", "Admin")">
+                <i class="fa fa-tachometer" aria-hidden="true"></i> Profile
+            </a>
+        </li>
+        <li class="header">All LIST</li>
+
+        <li>
+            <a href="@Url.Action("CustomerList", "Admin")">
+                <i class="fa fa-home" aria-hidden="true"></i> Customer List
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("PetsitterList", "Admin")">
+                <i class="fa fa-home" aria-hidden="true"></i> Pet Sitter List
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("AgenceyList", "Admin")">
+                <i class="fa fa-home" aria-hidden="true"></i> Agency List
+            </a>
+        </li>
+
+        <li class="header">ADD USER</li>
+        <li>
+            <a href="@Url.Action("AddCustomer", "Admin")">
+                <i class="fa fa-users" aria-hidden="true"></i> Add Customer
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("AddPetsitter", "Admin")">
+                <i class="fa fa-cog" aria-hidden="true"></i> Add Pet Sitter
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("AddAgency", "Admin")">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Add Agencey
+            </a>
+        </li>
+        <li class="header">OTHERS</li>
+        <li>
+            <a href="@Url.Action("AdminReport", "Admin")">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> Report
+            </a>
+        </li>
+        <li>
+            <a href="/Auth/Logout">
+                <i class="fa fa-info-circle" aria-hidden="true"></i> LOGOUT
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="content-container">
+
+    <div class="container-fluid">
+
+        <div class="grey-bg container-fluid">
+            <section id="minimal-statistics">
+                <div class="row">
+                    <div class="col-12 mt-3 mb-1">
+                        <h4 class="text-uppercase">Pet Bucket</h4>
+                        <p>Customer Delete</p>
+                    </div>
+                    @*<div class="col-xl-3 col-sm-6 col-12">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="media d-flex">
+                                            <div class="align-self-center">
+                                                <i class="icon-graph success font-large-2 float-left"></i>
+                                            </div>
+                                            <div class="media-body text-right">
+                                                <h3>
+                                                    @foreach (var item in Model.petbucket_admin)
+                                                    {
+                                                        @item.profit
+                                                    }
+                                                </h3>
+                                                <span>Total Profit</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                </div>
+                <div class="row">
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="media-body text-left">
+                                            <h3 class="success">5325</h3>
+                                            <span>Total Clients</span>
+                                        </div>
+                                        <div class="align-self-center">
+                                            <i class="icon-user success font-large-2 float-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="media-body text-left">
+                                            <h3 class="success">365</h3>
+                                            <span>Total Customer</span>
+                                        </div>
+                                        <div class="align-self-center">
+                                            <i class="icon-user success font-large-2 float-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="media-body text-left">
+                                            <h3 class="success">452</h3>
+                                            <span>Total Pet Sitter</span>
+                                        </div>
+                                        <div class="align-self-center">
+                                            <i class="icon-user success font-large-2 float-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="media-body text-left">
+                                            <h3 class="success">25</h3>
+                                            <span>Total Agency</span>
+                                        </div>
+                                        <div class="align-self-center">
+                                            <i class="icon-user success font-large-2 float-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="align-self-center">
+                                            <i class="icon-speech warning font-large-2 float-left"></i>
+                                        </div>
+                                        <div class="media-body text-right">
+                                            <h3>378</h3>
+                                            <span>Total Request</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="align-self-center">
+                                            <i class="icon-speech warning font-large-2 float-left"></i>
+                                        </div>
+                                        <div class="media-body text-right">
+                                            <h3>156</h3>
+                                            <span>Total Complete Request</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="align-self-center">
+                                            <i class="icon-speech warning font-large-2 float-left"></i>
+                                        </div>
+                                        <div class="media-body text-right">
+                                            <h3>53</h3>
+                                            <span>Total Pending Request</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="align-self-center">
+                                            <i class="icon-speech warning font-large-2 float-left"></i>
+                                        </div>
+                                        <div class="media-body text-right">
+                                            <h3>23</h3>
+                                            <span>Total Cancel Request</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="media-body text-left">
+                                            <h3 class="success">44.89 %</h3>
+                                            <span>Profit Rate</span>
+                                        </div>
+                                        <div class="align-self-center">
+                                            <i class="icon-graph success font-large-2 float-left"></i>
+                                        </div>
+                                    </div>
+                                    <div class="progress mt-1 mb-0" style="height: 7px;">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="media-body text-left">
+                                            <h3 class="primary">80%</h3>
+                                            <span>New Customer Joining Rate</span>
+                                        </div>
+                                        <div class="align-self-center">
+                                            <i class="icon-user success font-large-2 float-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="progress mt-1 mb-0" style="height: 7px;">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="media-body text-left">
+                                            <h3 class="warning">37%</h3>
+                                            <span>New Pet Sitter Joining Rate</span>
+                                        </div>
+                                        <div class="align-self-center">
+                                            <i class="icon-user success font-large-2 float-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="progress mt-1 mb-0" style="height: 7px;">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xl-3 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="media-body text-left">
+                                            <h3 class="danger">40%</h3>
+                                            <span>New Agency Joining Rate</span>
+                                        </div>
+                                        <div class="align-self-center">
+                                            <i class="icon-user success font-large-2 float-right"></i>
+                                        </div>
+                                    </div>
+                                    <div class="progress mt-1 mb-0" style="height: 7px;">
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="stats-subtitle">
+                <div class="row">
+                    <div class="col-12 mt-3 mb-1">
+                        <h4 class="danger">DELETE CUSTOMER!</h4>
+                        <h4 class="primary">@Html.DisplayFor(model => model.name)</h4>
+                        <h4 class="warning">Are You Sure You Want To Delete This Customer?</h4>
+                    </div>
+                </div>
+                <div>
+                    <hr />
+                    <table style="">
+                        <tr>
+                            <td class="primary">Name</td>
+                            <td class="danger"> @Html.DisplayFor(model => model.name)</td>
+                        </tr>
+                        <tr>
+                            <td class="primary">Email</td>
+                            <td class="danger">@Html.DisplayFor(model => model.email)</td>
+                        </tr>
+                        <tr>
+                            <td class="primary">Address</td>
+                            <td class="danger">@Html.DisplayFor(model => model.address)</td>
+                        </tr>
+                        <tr>
+                            <td class="primary">Phone Number</td>
+                            <td class="danger">@Html.DisplayFor(model => model.phone)</td>
+                        </tr>
+                        <tr>
+                            <td class="primary">NID Number</td>
+                            <td class="danger">@Html.DisplayFor(model => model.nid)</td>
+                        </tr>
+                        <tr>
+                            <td class="primary">Current Balance</td>
+                            <td class="danger">@Html.DisplayFor(model => model.balance)</td>
+                        </tr>
+                    </table>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Delete" class="btn btn-default" /> |
+                            @Html.ActionLink("Back to List", "CustomerList")
+                        </div>
+                    }
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@*<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.confirmpassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.confirmpassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.balance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.balance)
+        </dd>
+
+    </dl>
+
+    
+</div>*@
